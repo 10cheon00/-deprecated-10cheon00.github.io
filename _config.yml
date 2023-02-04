@@ -91,14 +91,15 @@ defaults:
       share: true
 
 # Site Author
-author: 10cheon00
-  name: 김택천
+author:
+  name:
   picture:
-  email: 10cheon00@gmail.com
+  email:
+  twitter:
   links:
-    - title: Github
-      url: https://github.com/10cheon00
-      icon: github
+    - title:
+      url:
+      icon:
 
 # Footer Links
 footer_links:
