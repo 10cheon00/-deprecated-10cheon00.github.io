@@ -1,7 +1,8 @@
 .page-image .entry-feature-image {
   max-height: 300px;
   object-fit: cover;
-  filter: brightness(60%);
+  filter: brightness(50%);
+  margin-top: 0.5rem !important;
 
   @include breakpoint($large) {
     max-height: 500px;
