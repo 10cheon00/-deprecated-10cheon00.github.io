@@ -1,0 +1,35 @@
+.page-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.page-categories * {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+
+.page-taxonomies-title {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+.page-information {
+  display: inline-block;
+  color: #a0a0a0;
+  @include breakpoint($large) {
+    display: block;
+  }
+}
+
+.page-header {
+  a {
+    display: inline-block;
+    padding: 0 0.5rem;
+    text-decoration: underline dashed #a0a0a0 !important;
+    color: #a0a0a0 !important;
+  }
+}
