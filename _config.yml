@@ -92,14 +92,14 @@ defaults:
 
 # Site Author
 author:
-  name:
+  name: "Kim Taekcheon"
   picture:
-  email:
-  twitter:
+  email: "10cheon00@gmail.com"
+  location: "South Korea"
   links:
-    - title:
-      url:
-      icon:
+    - label: "Github"
+      url: "https://github.com/10cheon00"
+      icon: "fab fa-github fa-lg"
 
 # Footer Links
 footer_links:
