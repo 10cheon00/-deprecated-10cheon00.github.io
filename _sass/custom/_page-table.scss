@@ -1,12 +1,17 @@
 table {
+  width: auto;
+
   th {
-    background-color: #474747;
+    background-color: #3a3a3a;
   }
+
   th,
   td {
+    width: auto;
+    min-width: 150px;
     border: 1px solid #5d5d5d;
   }
   tr:nth-child(even) {
-    background-color: #3e3e3e;
+    background-color: #3a3a3a;
   }
 }
