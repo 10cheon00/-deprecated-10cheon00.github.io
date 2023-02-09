@@ -7,14 +7,21 @@ layout: default
     {% include page-image.html %}
     <div class="page-wrapper">
       <header class="page-header">
-        <div class="page-categories">
-          {% include page-categories.html %}
-        </div>  
+        <div class="page-headline">
+          <div class="page-categories">
+            {% include page-categories.html %}
+          </div>  
+          <div class="page-published-date">
+          {% if page.published_at %}
+            Published at : {{ page.published_at | date: "%Y-%m-%d %H:%M:%S" }}
+          {% endif %}
+          </div>
+        </div>
         {% assign title = page.title | markdownify | strip_html %}
         {% if page.link %}
-          <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
+        <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
         {% else %}
-          <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
+        <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
         {% endif %}
       </header>
 

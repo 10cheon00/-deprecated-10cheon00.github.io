@@ -1,15 +1,3 @@
-.page-header {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #a0a0a0;
-}
-
-.page-categories * {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 0;
-  margin: 0;
-}
-
 .page-taxonomies-title {
   display: inline-block;
   font-size: 0.75rem;
@@ -26,6 +14,33 @@
 }
 
 .page-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #a0a0a0;
+  display: block;
+
+  .page-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .page-categories {
+      display: inline-block;
+
+      * {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .page-published-date {
+      display: inline-block;
+      font-size: 0.75em;
+      color: #a0a0a0;
+    }
+  }
+
   a {
     display: inline-block;
     padding: 0 0.5rem;
@@ -33,6 +48,7 @@
     color: #a0a0a0 !important;
   }
   .page-title {
-    margin: 0.25em 0;
+    margin: 0.25em;
+    margin-right: 0;
   }
 }
