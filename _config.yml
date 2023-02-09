@@ -93,7 +93,7 @@ defaults:
 # Site Author
 author:
   name: "Kim Taekcheon"
-  picture:
+  picture: "/assets/favicon-512x512.png"
   email: "10cheon00@gmail.com"
   location: "South Korea"
   links:
