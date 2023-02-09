@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: Maps
-date: 2023 Feb 05 Sun 13:13:28 GMT+0900
+published_at: Thu Feb 09 2023 23:37:59
 image:
   thumbnail: /assets/images/maps/rudeltaktik_0.2.png
   path: /assets/images/maps/rudeltaktik_0.2.png
