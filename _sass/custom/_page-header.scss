@@ -2,53 +2,47 @@
   display: inline-block;
   font-size: 0.75rem;
   font-weight: normal;
+  margin: 0;
   text-transform: lowercase;
 }
 
-.page-information {
-  display: inline-block;
-  color: #a0a0a0;
-  @include breakpoint($large) {
-    display: block;
-  }
-}
-
 .page-header {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #a0a0a0;
   display: block;
+  margin: 1rem 0;
+  padding: 0.5em 0;
+  border-bottom: 1px dashed #6d6d6d;
+  color: #a0a0a0;
 
-  .page-headline {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-
-    .page-categories {
+  .page-categories {
+    * {
       display: inline-block;
-
-      * {
-        display: inline-block;
-        font-size: 0.75rem;
-        padding: 0;
-        margin: 0;
-      }
+      padding: 0;
+      margin: 0;
     }
 
-    .page-published-date {
+    a {
       display: inline-block;
-      font-size: 0.75em;
-      color: #a0a0a0;
+      font-size: 0.75rem;
+      text-decoration: underline dashed white !important;
+      color: white !important;
     }
   }
 
-  a {
-    display: inline-block;
-    padding: 0 0.5rem;
-    text-decoration: underline dashed #a0a0a0 !important;
-    color: #a0a0a0 !important;
-  }
   .page-title {
-    margin: 0.25em;
-    margin-right: 0;
+    margin: 0.125em 0;
+    color: white;
+  }
+
+  .page-information {
+    font-size: 0.75em;
+    color: #a0a0a0;
+    @include breakpoint($large) {
+      display: block;
+    }
+  }
+
+  .page-information > *::before {
+    content: "\2022";
+    padding: 0 0.5em;
   }
 }

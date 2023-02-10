@@ -1,10 +1,13 @@
-.page-image .entry-feature-image {
-  max-height: 300px;
-  object-fit: cover;
-  filter: brightness(50%);
-  margin-top: 0.5rem !important;
+.page-image {
+  margin-bottom: 0 !important;
 
-  @include breakpoint($large) {
-    max-height: 500px;
+  .entry-feature-image {
+    max-height: 300px;
+    object-fit: cover;
+    filter: brightness(50%);
+
+    @include breakpoint($large) {
+      max-height: 500px;
+    }
   }
 }
