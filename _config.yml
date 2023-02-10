@@ -22,7 +22,7 @@ description: "10cheon00의 개인 블로그"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: "https://10cheon00.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 logo: # path of site logo, e.g. "/images/logo.png"
-date_format: "%B %-d, %Y"
+date_format: "%b %-d, %Y"
 read_time: true # reading time estimates, e.g. true
 words_per_minute: 100 # 200
 mathjax:
