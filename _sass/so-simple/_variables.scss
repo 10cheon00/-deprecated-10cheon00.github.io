@@ -43,9 +43,9 @@ $h6-max: ($base-font-size / $modular-scale-2) !default;
 
 /* Font Families */
 // $serif-font-family: "Lora", serif !default;
-$serif-font-family: "Nanum Gothic", serif !default;
-$sans-serif-font-family: "Source Sans Pro", sans-serif !default;
-$monospace-font-family: Menlo, Consolas, Monaco, "Courier New", Courier,
+$serif-font-family: "Noto Sans KR", "Nanum Gothic", serif !default;
+$sans-serif-font-family: "Noto Sans KR", "Source Sans Pro", sans-serif !default;
+$monospace-font-family: "Consolas", Menlo, Monaco, "Courier New", Courier,
   monospace !default;
 
 $base-font-family: $sans-serif-font-family !default;
