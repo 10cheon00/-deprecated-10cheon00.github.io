@@ -15,3 +15,4 @@ npm-debug.log*
 
 # Custom files or folders
 ignorefiles/
+*.Identifier
