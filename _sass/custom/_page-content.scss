@@ -1,14 +1,57 @@
 .page-content {
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h2 {
     border-bottom: 1px solid #5d5d5d;
-    padding-bottom: 0.25rem;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding-bottom: 0.3em;
   }
-  blockquote p {
-    margin-bottom: 0;
+
+  .e-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    h1,
+    h2 {
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #5d5d5d;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    p,
+    ul,
+    ol,
+    table,
+    pre,
+    blockquote {
+      margin-top: 0px;
+      margin-bottom: 16px;
+    }
+
+    blockquote {
+      padding: 16px;
+    }
+
+    li {
+      margin-top: 4px;
+    }
+
+    li:first-child {
+      margin-top: 0;
+    }
   }
 }
