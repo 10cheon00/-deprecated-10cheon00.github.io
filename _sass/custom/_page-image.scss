@@ -3,6 +3,8 @@
 
   .entry-feature-image {
     max-height: 300px;
+    min-height: 300px;
+    height: 300px;
     object-fit: cover;
     filter: brightness(50%);
 

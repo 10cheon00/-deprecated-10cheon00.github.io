@@ -1,0 +1,28 @@
+.entries-list {
+  > * {
+    border-bottom: 1px solid #5d5d5d;
+  }
+
+  article.entry{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+
+    .entry-image{
+      width: 150px;
+      min-width: 150px;
+      margin: 1rem;
+    }
+
+    .entry-content{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 1rem;
+      
+      .entry-header{
+        margin-top: auto;
+      }
+    }
+  }
+}
