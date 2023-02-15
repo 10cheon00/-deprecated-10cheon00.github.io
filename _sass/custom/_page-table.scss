@@ -2,16 +2,16 @@ table {
   width: auto;
 
   th {
-    background-color: #3a3a3a;
+    background-color: #303030;
   }
 
   th,
   td {
     width: auto;
     min-width: 150px;
-    border: 1px solid #5d5d5d;
+    border: 1px solid #404040;
   }
   tr:nth-child(even) {
-    background-color: #3a3a3a;
+    background-color: #303030;
   }
 }
