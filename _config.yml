@@ -26,7 +26,7 @@ date_format: "%b %-d, %Y"
 read_time: true # reading time estimates, e.g. true
 words_per_minute: 100 # 200
 mathjax:
-  enable: true # MathJax equations, e.g. true, false (default)
+  enable: false # MathJax equations, e.g. true, false (default)
   combo: "tex-svg" # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
   tags: "ams" # "none", "ams" (default), "all"
 google_fonts:
@@ -52,6 +52,9 @@ markdown: kramdown
 feed:
   path: atom.xml
 
+# Kramdown
+kramdown:
+  math_engine: katex
 
 # Pagination - https://jekyllrb.com/docs/pagination/
 paginate: 10
