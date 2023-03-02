@@ -49,6 +49,13 @@
 
     blockquote {
       padding: 16px;
+      color: #7d7d7d;
+      border-color: #7d7d7d;
+      background-color: inherit;
+
+      p {
+        margin: 0;
+      }
     }
 
     li {
