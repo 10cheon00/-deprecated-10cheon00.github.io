@@ -8,24 +8,31 @@ ul.author-links {
 
 .page-sidebar {
   .page-categories{
-    .page-categories-header{
-      margin-bottom: 0.2em;
-    }
+    margin: 1rem 0;
+    text-align: left;
+    border-color: #5d5d5d;
+    border-style: solid;
+    border-width: 1px 0px;
+    padding: 0;
   
     a {
       display: inline-block;
-      padding: 0 0.5rem;
       text-decoration: underline dashed #a0a0a0 !important;
-      // color: #a0a0a0 !important;
     }
   
-    li {
+    ul{
+      list-style-type: "- ";
       text-align: left;
-      list-style-type: upper-latin;
+      padding: 1rem;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.25rem;
+      }
     }
   }
 
-  @media (min-width: $large) {
+  @media (max-width: $large) {
     .page-categories{
       display: none;
     }

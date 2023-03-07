@@ -201,16 +201,17 @@
    Wide Layout Overrides
    ========================================================================== */
 
-.layout--home,
-.layout--posts,
-.layout--categories,
-.layout--tags,
-.layout--category,
-.layout--tag,
-.layout--collection,
+// .layout--home,
+// .layout--posts,
+// .layout--categories,
+// .layout--tags,
+// .layout--category,
+// .layout--tag,
+// .layout--collection,
 .layout--search {
   .page-wrapper {
     max-width: $main-max-width;
+    // max-width: $main-sidebar-max-width;
   }
 
   .page-title {
@@ -218,6 +219,13 @@
   }
 }
 
+.layout--home,
+.layout--posts,
+.layout--categories,
+.layout--tags,
+.layout--category,
+.layout--tag,
+.layout--collection,
 .layout--post {
   .page-wrapper {
     @include breakpoint($large) {
