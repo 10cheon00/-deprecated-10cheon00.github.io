@@ -1,0 +1,22 @@
+<div class="page-sidebar">
+  {% include page-author.html %} 
+  {% include page-tags.html %}
+  <div class="page-categories">
+    {% if site.categories.size > 0 %}
+      <hr>
+      <h3 class="page-categories-header">Categories</h3>
+      {% assign categories = site.categories | sort %}
+      <ul>
+        {% for category in categories %}
+          <li>
+            {% if site.category_archive_path %}
+            <a href="{{ category[0] | slugify | prepend: site.category_archive_path | relative_url }}">
+              {{ category[0] }} ({{ category[1].size }})
+            </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
