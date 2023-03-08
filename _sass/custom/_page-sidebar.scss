@@ -1,18 +1,22 @@
-ul.author-links {
-  margin-bottom: 0;
-}
-
-.page-author {
-  margin-bottom: 0.5rem;
-}
-
 .page-sidebar {
-  .page-categories{
-    margin: 1rem 0;
-    text-align: left;
+  > * {
     border-color: #5d5d5d;
     border-style: solid;
-    border-width: 1px 0px;
+    border-width: 0px 0px 1px 0px; 
+    padding: 1rem 0;
+  }
+
+  .page-author{
+    margin: 0;
+
+    ul.author-links {
+      margin-bottom: 0;
+    }
+  }
+  
+  .page-categories{
+    text-align: left;
+    margin: 0;
     padding: 0;
   
     a {
@@ -32,9 +36,9 @@ ul.author-links {
     }
   }
 
-  @media (max-width: $large) {
-    .page-categories{
-      display: none;
-    }
-  }
+  // @media (max-width: $large) {
+  //   .page-categories{
+  //     display: none;
+  //   }
+  // }
 }
