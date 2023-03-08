@@ -36,9 +36,13 @@
     }
   }
 
-  // @media (max-width: $large) {
-  //   .page-categories{
-  //     display: none;
-  //   }
-  // }
+  @media (max-width: $large) {
+    .page-categories{
+      display: none;
+    }
+
+    .page-categories-header{
+      display: none;
+    }
+  }
 }
