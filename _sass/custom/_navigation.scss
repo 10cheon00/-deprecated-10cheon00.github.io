@@ -1,5 +1,15 @@
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 19;
+  top: 0;
+}
+
 .navigation-wrapper {
   display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 20;  
   
   .navigation-bar {
     padding: 1em 1.25em;
@@ -12,17 +22,7 @@
     }
   }
 
-  .site-nav{
-    background-color: #3e3e3e;
-    position: fixed;
-    top: 0;
-    right: 0;
-    min-width: 150px;
-    height: 100%;
-    z-index: 20;
-  }
-
-  @include breakpoint($large){
+  @include breakpoint($medium) {
     display: none;
   }
 }

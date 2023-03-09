@@ -9,41 +9,13 @@
       </a>
     </div>
 
-    <aside id="primary-nav" class="site-nav">
-        <!--
-          This code will be used when you add hyperlink into menu.
-          <ul>
-            {%- for link in site.data.navigation -%}
-            {%- if link.url contains '://' -%}
-              {%- assign url = link.url -%}
-            {%- else -%}
-              {%- assign url = link.url | relative_url -%}
-            {%- endif -%}
-            <li><a href="{{ url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
-        </ul>
-    -->
-      <div class="navigation-exit">
-        <a href="#menu-toggle" class="menu-toggle">
-          <div class="fa fa-times"></div>
-        </a>
-      </div>
-      <div class="page-categories">
-        {% if site.categories.size > 0 %}
-          {% assign categories = site.categories | sort %}
-          <ul>
-            {% for category in categories %}
-              <li>
-                {% if site.category_archive_path %}
-                  <a href="{{ category[0] | slugify | prepend: site.category_archive_path | relative_url }}">
-                    {{ category[0] }} ({{ category[1].size }})
-                  </a>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      {% include page-sidebar.html %}
+
     </aside>
   </div><!-- /.navigation-wrapper -->
 {% endif %}
