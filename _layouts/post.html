@@ -6,27 +6,28 @@ layout: default
   <article class="h-entry">
     {% include page-image.html %}
     <div class="page-wrapper">
-      <header class="page-header">
-        <div class="page-categories">
-          {% include page-categories.html %}
-        </div>  
-        {% assign title = page.title | markdownify | strip_html %}
-        {% if page.link %}
-        <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
-        {% else %}
-        <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
-        {% endif %}
-        <div class="page-information">
-          {% if page.published_at %}
-            {{ page.published_at | date: "%Y-%m-%d %H:%M:%S" }}
-          {% endif %}
-          {% if site.read_time %}{% include read-time.html %}{% endif %}
-        </div>
-      </header>
 
       {% include page-sidebar.html %}
 
       <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            {% include page-categories.html %}
+          </div>
+          {% assign title = page.title | markdownify | strip_html %}
+          {% if page.link %}
+          <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
+          {% else %}
+          <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
+          {% endif %}
+          <div class="page-information">
+            {% if page.published_at %}
+              {{ page.published_at | date: "%Y-%m-%d %H:%M:%S" }}
+            {% endif %}
+            {% if site.read_time %}{% include read-time.html %}{% endif %}
+          </div>
+        </header>
+
         <div class="e-content">
           {{ content }}
         </div>
