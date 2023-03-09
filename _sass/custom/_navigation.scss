@@ -1,0 +1,28 @@
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 19;
+  top: 0;
+}
+
+.navigation-wrapper {
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 20;  
+  
+  .navigation-bar {
+    padding: 1em 1.25em;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+
+    > a {
+      background-color: transparent !important;
+    }
+  }
+
+  @include breakpoint($medium) {
+    display: none;
+  }
+}
