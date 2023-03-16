@@ -1,0 +1,17 @@
+<div class="category-posts">
+  {% assign posts = site.categories[include.category] %}
+  <ul>
+  {% for post in posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}"> {{ post.title }}</a> 
+      <span class="entry-meta">
+        <time class="entry-date dt-published" datetime="{{ post.date | date_to_xmlschema }}">
+          {%- assign date_format = site.date_format | default: "%B %-d, %Y" -%}
+          {{ post.date | date: date_format }}
+        </time>
+        {% include read-time.html entry=post %}
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
