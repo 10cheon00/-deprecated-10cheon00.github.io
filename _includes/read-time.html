@@ -3,6 +3,8 @@
 
 {% if entry %}
   {% assign words = entry.content | strip_html | number_of_words %}
+{% elsif include.entry %}
+  {% assign words = include.entry.content | strip_html | number_of_words %}
 {% else %}
   {% assign words = page.content | strip_html | number_of_words %}
 {% endif %}
