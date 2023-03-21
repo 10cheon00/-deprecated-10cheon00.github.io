@@ -24,12 +24,14 @@ layout: default
           {% else %}
           <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
           {% endif %}
-          <div class="page-information">
-            {% if page.published_at %}
-              {{ page.published_at | date: "%Y-%m-%d %H:%M:%S" }}
-            {% endif %}
-            {% if site.read_time %}{% include read-time.html %}{% endif %}
-          </div>
+          {% unless page.hide_information %}
+            <div class="page-information">
+              {% if page.published_at %}
+                {{ page.published_at | date: "%Y-%m-%d %H:%M:%S" }}
+              {% endif %}
+              {% if site.read_time %}{% include read-time.html %}{% endif %}
+            </div>
+          {% endunless %}
         </header>
 
         <div class="e-content">
