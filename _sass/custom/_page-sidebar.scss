@@ -48,17 +48,17 @@
 }
 
 .toggle-sidebar {
-  display: none;
   margin-bottom: 1em;
   text-align: center;
   background-color: #3e3e3e;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -50%;
   min-width: 150px;
   width: 50%;
   height: 100%;
   z-index: 21;
+  transition: right 0.4s ease;
 
   .toggle-sidebar-exit {
     display: block;
@@ -70,5 +70,6 @@
     display: block;
     -webkit-animation-name: initial;
     animation-name: initial;
+    right: 0;
   }
 }
