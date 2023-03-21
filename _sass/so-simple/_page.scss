@@ -209,16 +209,16 @@
 // .layout--category,
 // .layout--tag,
 // .layout--collection,
-.layout--search {
-  .page-wrapper {
-    max-width: $main-max-width;
+// .layout--search {
+//   .page-wrapper {
+//     max-width: $main-max-width;
     // max-width: $main-sidebar-max-width;
-  }
+//   }
 
-  .page-title {
-    text-align: center;
-  }
-}
+//   .page-title {
+//     text-align: center;
+//   }
+// }
 
 .layout--home,
 .layout--page,
@@ -228,6 +228,7 @@
 .layout--category,
 .layout--tag,
 .layout--collection,
+.layout--search,
 .layout--post {
   .page-wrapper {
     @include breakpoint($medium) {
