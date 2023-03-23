@@ -1,15 +1,16 @@
 .page-image {
-  margin-bottom: 0 !important;
+  margin: 0 !important;
+  padding-top:calc(2em + 25.35px);
+  text-align: center;
 
   .entry-feature-image {
-    max-height: 500px;
-    min-height: 500px;
-    height: 500px;
-    object-fit: cover;
-    filter: brightness(50%);
+    height: 400px;
+  }
 
-    @include breakpoint($large) {
-      max-height: 500px;
-    }
+  .masthead {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }

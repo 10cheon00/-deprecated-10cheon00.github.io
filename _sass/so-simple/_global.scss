@@ -67,13 +67,12 @@
 
 .masthead {
   @include clearfix;
-  margin-bottom: 3em;
   text-align: center;
 }
 
 .site-title {
-  margin: 0.5em 0 0;
   padding: 0;
+
   @include fluid-type($min-vw, $max-vw, $h2-min, $h2-max);
   font-weight: 700;
 
