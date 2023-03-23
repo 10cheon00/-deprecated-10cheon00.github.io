@@ -41,7 +41,9 @@ layout: default
         {% if site.disqus.shortname %}
           {% include disqus-comments.html %}
         {% endif %}
-
+        {% unless page.hide_information %}
+          {% include giscus.html %}
+        {% endunless %}
         {% include page-pagination.html %}
       </div>
     </div>
