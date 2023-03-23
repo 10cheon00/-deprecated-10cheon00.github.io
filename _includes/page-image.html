@@ -1,22 +1,27 @@
+{% assign image_url = "/assets/images/default_background.png" %}
 {% if page.image %}
   {% assign page_image = page.image.path | default: page.image %}
   {% unless page_image contains '://' %}
     {% assign page_image = page_image | relative_url %}
   {% endunless %}
-  {% assign page_image = page_image | escape %}
-
-  <div class="page-image">
-    <img src="{{ page_image }}" class="entry-feature-image u-photo" alt="{{ page.title }}" {% unless site.logo %}style="margin-top: 0;"{% endunless %}>
-    {% if page.image.caption %}
-      <div class="page-image-caption">{{ page.image.caption | markdownify }}</div>
-    {% endif %}
-  </div>
-{% else %}
-<!-- Default page image -->
+  {% assign image_url = page_image | escape %}
+{% endif %}
 <div class="page-image">
-  <img src="/assets/images/default_background.png" class="entry-feature-image u-photo" alt="{{ page.title }}" {% unless site.logo %}style="margin-top: 0;"{% endunless %}>
+  <div
+    style="
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.4),
+          rgba(0,0,0,0.425)),
+          url({{ image_url }});
+      background-size: cover;
+      background-repeat: no-repeat;"
+    class="entry-feature-image u-photo"
+    alt="{{ page.title }}">
+    {% include masthead.html %}
+  </div>
   {% if page.image.caption %}
     <div class="page-image-caption">{{ page.image.caption | markdownify }}</div>
   {% endif %}
 </div>
-{% endif %}

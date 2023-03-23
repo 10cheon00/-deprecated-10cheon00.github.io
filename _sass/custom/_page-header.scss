@@ -9,8 +9,7 @@
 .page-header {
   display: block;
   margin: 0 0 0.5rem;
-  padding: 0.5em 0;
-  border-bottom: 1px dashed #6d6d6d;
+  padding: 0;
   color: #a0a0a0;
 
   .page-categories {
@@ -36,6 +35,9 @@
   .page-information {
     font-size: 0.75em;
     color: #a0a0a0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px dashed #6d6d6d;
+
     @include breakpoint($large) {
       display: block;
     }
