@@ -17,9 +17,9 @@
           url({{ image_url }});"
     class="entry-feature-image u-photo"
     alt="{{ page.title }}">
-    {% include masthead.html %}
   </div>
   {% if page.image.caption %}
     <div class="page-image-caption">{{ page.image.caption | markdownify }}</div>
   {% endif %}
+  {% include masthead.html %}
 </div>
