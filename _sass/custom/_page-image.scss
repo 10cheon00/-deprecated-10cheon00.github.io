@@ -1,10 +1,14 @@
 .page-image {
   margin: 0 !important;
-  padding-top:calc(2em + 25.35px);
   text-align: center;
 
   .entry-feature-image {
     height: 400px;
+    margin-top: calc(2em + 25.35px);
+
+    @include breakpoint($medium){
+      margin-top: 0;
+    }
   }
 
   .masthead {
