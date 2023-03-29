@@ -4,6 +4,9 @@
 
   .entry-feature-image {
     height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     margin-top: calc(2em + 25.35px);
 
     @include breakpoint($medium){
