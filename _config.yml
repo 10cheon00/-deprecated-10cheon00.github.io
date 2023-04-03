@@ -81,10 +81,11 @@ exclude:
 #   - vendor/ruby/
 
 plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
+  # - jekyll-seo-tag
+  # - jekyll-sitemap
+  # - jekyll-feed
   - jekyll-paginate
+  - jekyll-url-metadata
 
 # Front Matter Defaults
 defaults:
@@ -112,3 +113,8 @@ footer_links:
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
+
+# Url Metadata config
+url_metadata:
+  open_timeout: 5
+  read_timeout: 3
