@@ -1,6 +1,6 @@
 name: Publish example site
 
-permission:
+permissions:
   contents: read
   pages: write
 
