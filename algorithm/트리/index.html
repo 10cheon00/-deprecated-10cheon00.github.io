@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>트리</title>
+    <meta name="description" content="개념">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%ED%8A%B8%EB%A6%AC/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  트리">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/algorithm/tree_0.png)"
+    class="entry-feature-image u-photo"
+    alt="트리">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">트리
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-02-25 12:14:59
+              
+              
+
+<span class="read-time">1 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="개념">개념</h1>
+
+<p>트리는 값을 갖는 노드들로 구성된 자료구조를 말한다.</p>
+
+<p>트리는 그래프처럼 생겼지만 순환성이 없는 그래프다.</p>
+
+<p>최상위 루트 노드로부터 뻗어져나가는 모습을 보면 나무 모양이 보이기 때문에 트리라고 부른다.</p>
+
+<p><img src="/assets/images/algorithm/tree_2.png" alt="tree_2.png" /></p>
+
+<h2 id="구성요소">구성요소</h2>
+
+<p>위 사진을 참고하면 트리 안에는 여러가지 구성요소를 나타내는 용어들이 있다.</p>
+
+<ul>
+  <li>루트 노드 : 트리의 최상위 노드</li>
+  <li>간선 : 부모 노드와 자식 노드를 연결</li>
+  <li>레벨 : 루트 노드로부터 현재 노드까지 연결된 간선 개수의 합</li>
+  <li>서브트리 : 트리 구조에서 하위의 트리 구조</li>
+</ul>
+
+<h2 id="종류">종류</h2>
+
+<p>일반적으로 부모 노드는 여러 자식 노드를 가질 수 있다. 이를 다중 트리라고 한다.</p>
+
+<p>특수한 상황이 아니면 일반적으로 자식 노드를 최대 2개까지 두는 이진 트리를 이용하는 경우가 많다.</p>
+
+<ul>
+  <li><a href="/algorithm/이진-트리">이진 트리</a></li>
+  <li>AVL트리</li>
+  <li>Red-black 트리</li>
+  <li><a href="/algorithm/우선순위-큐">힙</a></li>
+  <li>…</li>
+</ul>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 양방향 링크드리스트
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        이진 트리
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

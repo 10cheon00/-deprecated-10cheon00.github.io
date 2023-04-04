@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>우선순위 큐</title>
+    <meta name="description" content="개념 완전 이진 트리를 기반으로 하는 자료구조다. 주어진 값들 중 최대 또는 최소를 찾아내는 속도가 매우 빠르다.">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  우선순위-큐">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/default_background.png)"
+    class="entry-feature-image u-photo"
+    alt="우선순위 큐">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">우선순위 큐
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-03-03 19:51:42
+              
+              
+
+<span class="read-time">7 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="개념">개념</h1>
+
+<p>완전 이진 트리를 기반으로 하는 자료구조다. 주어진 값들 중 최대 또는 최소를 찾아내는 속도가 매우 빠르다.</p>
+
+<h1 id="시간복잡도">시간복잡도</h1>
+
+<ul>
+  <li>삽입 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></li>
+  <li>삭제 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></li>
+  <li>탐색 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+
+<h1 id="원리">원리</h1>
+
+<p>우선순위 큐는 <strong>힙</strong>을 이용한다. 힙은 <strong><span class="green">완전 이진 트리를 기반으로 만들어진 자료구조</span></strong>다.</p>
+
+<h2 id="힙">힙</h2>
+
+<p>힙은 주어진 값들 중 최대 또는 최소를 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>만에 찾아낼 수 있는 자료구조다.</p>
+
+<p>주어진 값들 중 최대값을 찾아내려고 할 때 힙은 아래 그림처럼 형성된다.</p>
+
+<p><img src="/assets/images/algorithm/heap_1.png" alt="heap_1.png" /></p>
+
+<p>이 때 힙은 <span class="orange"><strong>부모 노드가 자식 노드보다 항상 큰 값을 갖는다는 규칙</strong></span>을 유지해야한다.</p>
+
+<p>여기서 최대값은 15이고 힙은 항상 루트 노드만 탐색하기 때문에 항상 최대값을 얻을 수 있다.</p>
+
+<h2 id="삽입">삽입</h2>
+
+<p>완전 이진 트리로 구성되어 있기 때문에 <strong><span class="green">항상 트리의 마지막 레벨을 채우게 된다</span></strong>.</p>
+
+<p>위 그림에서 19가 삽입되면 아래 그림처럼 트리의 마지막 레벨에 값이 들어간다.</p>
+
+<p><img src="/assets/images/algorithm/heap_2.png" alt="heap_2.png" /></p>
+
+<p>이 힙은 최대 힙이기 때문에 부모 노드가 자식 노드보다 값이 커야 한다. 현재 상태는 19가 11보다 크다.</p>
+
+<p>즉, 삽입을 했더니 <span class="red"><strong>자식 노드가 부모 노드보다 커서 규칙이 깨져있다</strong></span>.</p>
+
+<p>규칙을 만족시키기 위해 부모 노드와 자식 노드를 교환한다.</p>
+
+<p><img src="/assets/images/algorithm/heap_3.png" alt="heap_3.png" /></p>
+
+<p>교환을 했음에도 아직 부모 노드보다 자식 노드가 큰 상황이다. 따라서 규칙을 만족할 때까지 삽입한 노드를 계속 부모 노드와 교환한다.</p>
+
+<p><img src="/assets/images/algorithm/heap_4.png" alt="heap_4.png" /></p>
+
+<p>루트 노드를 만날 때까지 계속 반복하면 이렇게 트리가 변한다.</p>
+
+<p>정리하면, <span class="green"><strong>최대힙일 때 부모 노드가 새로 삽입한 노드보다 클 때까지 부모 노드와 삽입한 노드를 바꾼다</strong></span>.</p>
+
+<p>최소힙일 경우 위 방법의 부등호를 반대로 생각하여 부모 노드가 새로 삽입한 노드보다 작을 때까지 서로 바꾼다.</p>
+
+<h2 id="삭제">삭제</h2>
+
+<p>힙에서 삭제를 한다는 말은 <strong><span class="orange">루트 노드를 pop하겠다</span></strong>는 말과 같다.</p>
+
+<p>루트 노드의 자리가 비어버렸으니 다른 노드가 그 자리를 선점해야한다. 이 때 부모 노드가 자식 노드보다 크다는 규칙을 유지해야한다.</p>
+
+<p>먼저 루트 노드인 19를 삭제한다. 그리고 트리의 마지막 레벨에서 제일 오른쪽 노드를 첫번째 자리로 갖고 온다.</p>
+
+<p><img src="/assets/images/algorithm/heap_5.png" alt="heap_5.png" /></p>
+
+<p>그러면 이렇게 19가 사라지고 마지막 노드인 11이 그 자리를 메꾸게 되는데 최대힙의 규칙을 만족하지 못하고 있다.</p>
+
+<p>따라서 11과 11의 자식 노드를 서로 바꾸어야 규칙을 유지시킬 수 있다.</p>
+
+<p>위 그림에서 9 또는 15가 11과 자리를 바꾸어야 하는데, 9가 올 경우 규칙을 만족하지 못하므로 15를 선택해 바꾼다.</p>
+
+<p><img src="/assets/images/algorithm/heap_6.png" alt="heap_6.png" /></p>
+
+<p>이렇게 교체하고 나면 규칙을 만족한다. 만약 교체를 했음에도 규칙을 만족시키지 못하면 마지막 레벨까지 현재 노드와 하위 노드를 계속 교환한다.</p>
+
+<p>정리하면 <span class="green"><strong>트리의 마지막 노드를 루트 노드로 변경한다</strong></span>. 규칙을 만족시킬 때까지 <span class="green"><strong>그 노드와 그 노드의 하위 노드중 제일 큰 값을 교환한다</strong></span>.</p>
+
+<h1 id="구현">구현</h1>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 최대 힙</span>
+<span class="c1">// 인덱스 계산을 편리하게 하기 위해 </span>
+<span class="c1">// 배열의 0번 자리는 쓰지 않고 1번부터 쓴다.</span>
+<span class="kt">int</span> <span class="n">heap</span><span class="p">[</span><span class="n">MAX_NODE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>힙은 완전 이진 트리이기 때문에 구조체를 사용하지 않고 배열만 사용해도 남는 공간이 없이 알뜰하게 구현할 수 있다.</p>
+
+<p>인덱스 계산을 편리하게 하기 위해 0번째 값을 1번 노드로 쓰지 않고 1번째 값을 1번 노드로 한다.</p>
+
+<p>이렇게 안하면 조금 계산이 복잡해지기 때문에 직관적인 편의를 위해 0번째 값을 쓰지 않는다.</p>
+
+<h2 id="삽입-1">삽입</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="n">heap</span><span class="p">[</span><span class="o">++</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">){</span>
+    <span class="c1">// 현재 노드 = heap[i]</span>
+    <span class="c1">// 현재 노드의 부모 노드 = heap[i/2]</span>
+    <span class="c1">// 이런 인덱스 계산이 가능한 이유는 완전 이진 트리이기 때문이다.</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">]){</span>
+      <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
+      <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>앞서 설명했듯이 삽입한 노드의 부모 노드를 계속 확인하며 교환한다.</p>
+
+<p>부모를 조회하는 방법은 단순히 현재 노드의 인덱스를 2로 나눈 건데 이유는 아래 그림에 있다.</p>
+
+<p><img src="/assets/images/algorithm/heap_7.png" alt="heap_7.png" /></p>
+
+<p>완전 이진 트리에서 노드의 인덱스를 나타내면 이렇게 되는데 <span class="orange">i가 7일 경우 i번째 노드의 부모는 단순히 2로 나눈 값</span>이기 때문이다.</p>
+
+<p>반대로 생각하면 부모 노드의 인덱스에 2를 곱하면 왼쪽 자식 노드, 그 값에 1을 더하면 오른쪽 자식 노드다. 이 원리는 삭제 과정에서도 활용한다.</p>
+
+<p>자식 노드가 부모 노드보다 크다면 교환을 하고 그렇지 않으면 바로 종료한다.</p>
+
+<h2 id="삭제-1">삭제</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">pop</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="n">heap</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">size</span><span class="o">--</span><span class="p">];</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">*</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="p">;){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span> <span class="o">==</span> <span class="n">size</span> <span class="o">||</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]){</span>
+      <span class="c1">// 현재 노드의 자식이 왼쪽밖에 없거나 왼쪽이 오른쪽보다 더 클 경우</span>
+      <span class="c1">// 왼쪽 자식 노드와 현재 노드를 바꿀지 판단한다.</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">]){</span>
+        <span class="c1">// 만약 왼쪽 자식 노드가 현재 노드보다 크다면</span>
+        <span class="c1">// 왼쪽 자식 노드를 현재 노드와 교체한다.</span>
+        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">];</span>
+        <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+      <span class="p">}</span>
+      <span class="k">else</span><span class="p">{</span>
+        <span class="c1">// 그렇지 않으면 부모 노드가 자식 노드보다 크다는 말이므로 종료.</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+      <span class="c1">// 오른쪽 노드가 왼쪽 노드보다 더 큰 경우</span>
+      <span class="c1">// 오른쪽 자식 노드를 현재 노드와 바꿀지 판단한다.</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]){</span>
+        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+        <span class="n">heap</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span><span class="p">{</span>
+        <span class="c1">// 그렇지 않으면 부모 노드가 자식 노드보다 크다는 말이므로 종료.</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">top</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>앞에서 언급했듯이 현재 노드의 인덱스가 i면 <span class="orange"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">i \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7429em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>번째 노드는 왼쪽 자식 노드, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i \times 2 + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7429em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>은 오른쪽 자식 노드다</span>.</p>
+
+<p>왼쪽 노드를 교체할지 말지 고민해야할 상황은,</p>
+
+<ol>
+  <li>현재 노드의 자식이 왼쪽 노드밖에 없다.</li>
+  <li>왼쪽 노드가 오른쪽 노드보다 크다.</li>
+</ol>
+
+<p>이 두 가지 뿐이다.</p>
+
+<p>먼저 <code class="language-plaintext highlighter-rouge">i*2 == size</code>를 통해 왼쪽 노드밖에 없는 상황을 처리했다.</p>
+
+<p>만약 <code class="language-plaintext highlighter-rouge">i*2 != size</code>라면 오른쪽 노드도 있다는 말이므로 <code class="language-plaintext highlighter-rouge">heap[i*2] &gt; heap[i*2+1]</code>로 오른쪽 노드와 왼쪽 노드를 비교한다.</p>
+
+<p>선택한 하위 노드가 부모 노드보다 크다면 두 노드를 교체한다.</p>
+
+<p>그렇지 않으면 규칙을 이미 만족하고 있다는 말이므로 그대로 종료한다.</p>
+
+<h1 id="정리">정리</h1>
+
+<p>위 과정을 배열로 나타내어 보면 <strong>첫 번째 값을 참조하거나 삭제</strong>하고, <strong>마지막에 삽입</strong>을 하기 때문에 큐 형태를 띈다하여 <strong><span class="green">우선순위 큐</span></strong>라고 부른다.</p>
+
+<p>데이터의 양이 많지만 전체를 순회하지 않고 최대값 또는 최소값만 연속적으로 빠르게 찾아야 하는 상황에서 쓰면 좋다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EC%B5%9C%EC%86%8C-%EA%B3%B5%ED%86%B5-%EC%A1%B0%EC%83%81/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 최소 공통 조상
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%EA%B7%B8%EB%9E%98%ED%94%84/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        그래프
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

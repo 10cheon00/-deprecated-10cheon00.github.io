@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>그래프</title>
+    <meta name="description" content="개념">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EA%B7%B8%EB%9E%98%ED%94%84/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  그래프">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/algorithm/graph_1.png)"
+    class="entry-feature-image u-photo"
+    alt="그래프">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">그래프
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-03-04 18:08:06
+              
+              
+
+<span class="read-time">2 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="개념">개념</h1>
+
+<p><img src="/assets/images/algorithm/graph_1.png" alt="graph_1.png" /></p>
+
+<p>그래프는 정점과 간선으로 구성된 자료구조다. 정점 사이의 다대다 관계를 나타낸다.</p>
+
+<h1 id="종류">종류</h1>
+
+<h2 id="방향-그래프">방향 그래프</h2>
+
+<p><img src="/assets/images/algorithm/graph_2.png" alt="graph_2.png" /></p>
+
+<p>그래프의 간선에 방향이 있다. 1번 정점은 3번 정점으로 가는 간선이 있지만 3번 정점은 1번 정점으로 가는 간선이 없다.</p>
+
+<h2 id="무방향-그래프">무방향 그래프</h2>
+
+<p><img src="/assets/images/algorithm/graph_3.png" alt="graph_3.png" /></p>
+
+<p>그래프의 간선에 방향이 없다. 각 정점은 서로 연결된 정점으로 가는 간선을 갖고 있다.</p>
+
+<h2 id="가중치-그래프">가중치 그래프</h2>
+
+<p><img src="/assets/images/algorithm/graph_4.png" alt="graph_4.png" /></p>
+
+<p>그래프의 간선에 가중치(비용)가 있다. 1번 정점에서 3번 정점, 4번 정점을 거쳐 5번 정점으로 가는 간선의 가중치합은 13이 된다.</p>
+
+<h1 id="저장방식">저장방식</h1>
+
+<p>그래프를 저장하는 방식에는 여러가지가 있다.</p>
+
+<h2 id="인접행렬배열">인접행렬(배열)</h2>
+
+<h3 id="장점">장점</h3>
+
+<ul>
+  <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>의 시간복잡도로 정점과 정점 사이에 간선이 놓여 있는지 확인할 수 있다.</li>
+</ul>
+
+<h3 id="단점">단점</h3>
+
+<ul>
+  <li>정점 개수가 N일 때, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>만큼의 공간을 쓰게 된다. 따라서 <span class="red">많은 공간을 낭비하게 된다</span>.</li>
+</ul>
+
+<h3 id="예시">예시</h3>
+
+<p><img src="/assets/images/algorithm/graph_5.png" alt="graph_5.png" /></p>
+
+<p>위 그림과 같은 방향 그래프를 인접행렬로 나타내면 이렇게 저장된다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">graph</span><span class="p">[</span><span class="n">SIZE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">SIZE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> 
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">graph[i][j]</code>는 i번째 정점이 j번째 정점으로 가는 간선을 갖고 있는지를 의미한다.</p>
+
+<p>즉, 2번 정점이 4번 정점과 연결되어 있는지 확인하려면 <span class="orange"><code class="language-plaintext highlighter-rouge">graph[2][4]</code>가 1인지 확인하면 된다</span>.</p>
+
+<p>하지만 방향 그래프이기 때문에 <strong>4번 정점은 2번 정점과 연결되어 있지 않다</strong>. 따라서 <code class="language-plaintext highlighter-rouge">graph[4][2]</code>의 값은 0이다.</p>
+
+<p>무방향 그래프였다면 <code class="language-plaintext highlighter-rouge">graph[i][j]</code>와 <code class="language-plaintext highlighter-rouge">graph[j][i]</code> 모두 1이다.</p>
+
+<h2 id="연결리스트">연결리스트</h2>
+
+<h3 id="장점-1">장점</h3>
+
+<ul>
+  <li>인접행렬에 비해 <span class="green"><strong>해당 정점이 갖고있는 간선의 수만큼 공간을 차지하기 때문에</strong></span> 메모리가 절약된다.</li>
+</ul>
+
+<h3 id="단점-1">단점</h3>
+
+<ul>
+  <li>특정 간선의 존재를 파악하기 위해 <span class="red">정점에 연결된 간선의 수만큼 탐색을 해야한다</span>.</li>
+</ul>
+
+<h3 id="예시-1">예시</h3>
+
+<p><img src="/assets/images/algorithm/graph_5.png" alt="graph_5.png" /></p>
+
+<p>위 그림을 다시 갖고 왔다. 이 그래프를 연결리스트로 나타내면 아래 그림처럼 저장된다.</p>
+
+<p><img src="/assets/images/algorithm/graph_6.png" alt="graph_6.png" /></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span><span class="p">{</span>
+  <span class="kt">int</span> <span class="n">vertex</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">Node</span><span class="o">*</span> <span class="n">list</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>만약 모든 정점이 서로 연결된 상태라면 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">N^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>만큼 공간을 쓰게 되지만 일반적으로 인접행렬보다 훨씬 메모리가 절약된다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 우선순위 큐
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/DFS%EC%99%80-BFS/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        Dfs와 Bfs
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

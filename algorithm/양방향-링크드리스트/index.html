@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>양방향 링크드리스트</title>
+    <meta name="description" content="링크드리스트 개념">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  양방향-링크드리스트">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/%7B%22path%22=%3Enil,%20%22thumbnail%22=%3Enil%7D)"
+    class="entry-feature-image u-photo"
+    alt="양방향 링크드리스트">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">양방향 링크드리스트
+</h1>
+          
+          
+            <div class="page-information">
+              
+              
+
+<span class="read-time">5 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <p><a href="/algorithm/링크드리스트">링크드리스트 개념</a></p>
+
+<gray>코드는 제 마음대로 작성했기 때문에 보편적인 방법이 아닐 수 있습니다.</gray>
+
+<h1 id="구현">구현</h1>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span><span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span><span class="p">,</span> <span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span> <span class="n">tail</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>단방향 링크드리스트와 다르게 직전 노드를 참조하는 <code class="language-plaintext highlighter-rouge">prev</code>변수를 갖고 있다.</p>
+
+<p>따라서 시작점뿐만 아니라 끝점에서도 역순으로 순회가 가능하므로 시작점과 끝점을 나타내는 변수를 모두 갖고 있어야 한다.</p>
+
+<h2 id="초기화">초기화</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Node</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 의미없는 노드</span>
+<span class="n">Node</span><span class="o">*</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>처음에는 <code class="language-plaintext highlighter-rouge">head</code>에 의미없는 노드를 추가한다.</p>
+
+<p>이렇게 하지 않는다면 <code class="language-plaintext highlighter-rouge">head</code>가 비어있는지 매번 확인해야한다.</p>
+
+<p>귀찮음을 없애기 위해 의미없는 노드를 추가하고 프로그램이 종료되기 전까지 절대 삭제하지 않는다.</p>
+
+<p>그리고 <code class="language-plaintext highlighter-rouge">tail</code>에 <code class="language-plaintext highlighter-rouge">head</code>의 주소를 대입하고 새로 값을 추가할 때 <code class="language-plaintext highlighter-rouge">tail</code>을 이용한다.</p>
+
+<h2 id="삽입">삽입</h2>
+
+<p>링크드리스트는 직접 접근이 안되기 때문에 원하는 위치까지 순회 후 삽입을 해야한다.</p>
+
+<p>그러나 양방향 링크드리스트는 <green>리스트의 끝에 삽입을 할 때 순회할 필요가 없다는 장점</green>이 있다.</p>
+
+<p>왜냐하면 <code class="language-plaintext highlighter-rouge">tail</code>변수를 통해 링크드리스트의 끝을 알고 있기 때문이다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 리스트의 끝에 삽입한다.</span>
+<span class="kt">void</span> <span class="nf">insertBack</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+  <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+  <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>단순히 끝에만 삽입한다면 탐색없이 순수 시간복잡도가 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>이다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 리스트의 index번째 위치에 삽입한다.</span>
+<span class="c1">// 리스트의 크기가 index보다 작을 경우 tail에 값을 삽입한다.</span>
+<span class="kt">void</span> <span class="nf">insertAt</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">index</span><span class="p">){</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+  <span class="c1">// 만약 iter-&gt;next가 nullptr이라면 </span>
+  <span class="c1">// iter는 tail이다.</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">iter</span> <span class="o">==</span> <span class="n">tail</span><span class="p">){</span>
+    <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+  <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+  <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">iter</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>만약 특정한 위치에 삽입한다면 순서에 주의해야 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">iter-&gt;next = newNode</code>를 먼저 실행하면 <red>기존에 iter와 연결되어있는 다음 노드에 접근할 수 없다</red>.</p>
+
+<p><img src="/assets/images/algorithm/linked_list_5.png" alt="linked_list_5.png" /></p>
+
+<p>그림에서 보이듯이 먼저 10번 노드의 <code class="language-plaintext highlighter-rouge">next</code>를 5번 노드로 바꿔버리면 <red>7번 노드에 접근할 방법이 없다</red>.</p>
+
+<p>그래서 먼저 새로 삽입할 노드의 <code class="language-plaintext highlighter-rouge">next</code>와 <code class="language-plaintext highlighter-rouge">iter</code>의 다음 노드의 <code class="language-plaintext highlighter-rouge">prev</code>를 변경한 후, <code class="language-plaintext highlighter-rouge">iter</code>의 <code class="language-plaintext highlighter-rouge">next</code>와 <code class="language-plaintext highlighter-rouge">newNode</code>의 <code class="language-plaintext highlighter-rouge">prev</code>를 변경한다.</p>
+
+<p><img src="/assets/images/algorithm/linked_list_6.png" alt="linked_list_6.png" /></p>
+
+<p>변경이 완료되면 위 그림처럼 변해있다.</p>
+
+<h2 id="삭제">삭제</h2>
+
+<p>단방향 링크드리스트는 마지막 노드를 삭제하려면 처음부터 끝까지 순회를 해야했지만 양방향 링크드리스트는 그렇지 않다.</p>
+
+<p>양방향 링크드리스트의 특징은 직전 노드를 기억하고 있다는 점이다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 리스트의 마지막 노드를 삭제한다.</span>
+<span class="kt">int</span> <span class="nf">popBack</span><span class="p">(){</span>
+  <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">tail</code>의 <code class="language-plaintext highlighter-rouge">prev</code>변수를 통해 직전 노드로 이동한 후 <code class="language-plaintext highlighter-rouge">delete tail-&gt;next</code>를 실행하면 마지막 노드가 삭제된다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 리스트의 index번째 노드를 삭제한다.</span>
+<span class="c1">// 리스트의 크기가 index보다 작을 경우 마지막 노드를 삭제한다.</span>
+<span class="kt">int</span> <span class="nf">popAt</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">){</span>
+  <span class="c1">// head-&gt;next가 nullptr이면 리스트가 비어있는 것임.</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span> 
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// -1은 리스트가 비어있음을 나타냄.</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">index</span><span class="p">){</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">prevNode</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">nextNode</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+  <span class="n">prevNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nextNode</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">nextNode</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">){</span> <span class="c1">// 다음 노드가 없는 경우도 있음!</span>
+    <span class="n">nextNode</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">prevNode</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">delete</span> <span class="n">iter</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>삭제할 <code class="language-plaintext highlighter-rouge">iter</code>와 연결된 직전 노드와 직후 노드를 서로 이어준다.</p>
+
+<p>그 후 <code class="language-plaintext highlighter-rouge">delete iter</code>로 간단히 삭제한다.</p>
+
+<p>다음 노드가 없는 경우도 있으므로 (마지막 노드를 삭제하려할 때) 예외처리만 신경쓰면 삭제 과정은 간단하다.</p>
+
+<p><img src="/assets/images/algorithm/linked_list_7.png" alt="linked_list_7.png" /></p>
+
+<p>위 그림처럼 4번 노드를 지우게 된다면 10번 노드의 <code class="language-plaintext highlighter-rouge">next</code>는 8번 노드가 되어있고, 8번 노드릐 <code class="language-plaintext highlighter-rouge">prev</code>는 10번 노드가 되어있다.</p>
+
+<h2 id="탐색">탐색</h2>
+
+<p>양방향 링크드리스트는 <code class="language-plaintext highlighter-rouge">head</code>부터 탐색할 수도 있지만 <code class="language-plaintext highlighter-rouge">tail</code>부터 탐색할 수도 있다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span><span class="o">*</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="o">!=</span><span class="nb">nullptr</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">){</span>
+      <span class="k">return</span> <span class="n">iter</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Node</span><span class="o">*</span> <span class="n">reverseSearch</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">iter</span> <span class="o">!=</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">){</span>
+      <span class="k">return</span> <span class="n">iter</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>거꾸로 탐색할 때 <code class="language-plaintext highlighter-rouge">while(iter != head)</code>라고 한 이유는 앞서 head를 의미없는 노드로 초기화했기 때문에 더이상 탐색할 필요가 없기 때문이다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EB%8B%A8%EB%B0%A9%ED%96%A5-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 단방향 링크드리스트
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%ED%8A%B8%EB%A6%AC/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        트리
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

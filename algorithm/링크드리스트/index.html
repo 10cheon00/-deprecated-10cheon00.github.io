@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>링크드리스트</title>
+    <meta name="description" content="시간복잡도">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  링크드리스트">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/algorithm/linked_list_1.png)"
+    class="entry-feature-image u-photo"
+    alt="링크드리스트">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">링크드리스트
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-02-19 23:52:54
+              
+              
+
+<span class="read-time">1 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="시간복잡도">시간복잡도</h1>
+
+<ul>
+  <li>삽입 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+  <li>삭제 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+  <li>탐색 : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+
+<h1 id="장점">장점</h1>
+
+<ul>
+  <li>값을 저장할 때 <green>연속적인 공간에 저장하지 않음</green>으로 배열보다 자유롭게 메모리를 관리할 수 있다.</li>
+  <li>한 번 선언하면 크기를 바꾸기 힘든 배열과 다르게 크기에 대한 제한이 없다.</li>
+</ul>
+
+<h1 id="단점">단점</h1>
+
+<ul>
+  <li>연속적인 공간에 저장하지 않기 때문에 <red>인덱스를 활용한 Direct Access는 불가능</red>하다.</li>
+  <li>정적 크기를 갖는 배열과 다르게 동적 크기를 갖기 때문에 <red>메모리 누수의 위험</red>이 있다.</li>
+</ul>
+
+<h1 id="설명">설명</h1>
+
+<p>링크드리스트는 각 노드가 다른 노드를 가리키는 구조를 갖는다.</p>
+
+<p>내 친구의 친구의 친구의 친구의 … 와 같다.</p>
+
+<p>그림으로 표현하면 이렇다.</p>
+
+<p><img src="/assets/images/algorithm/linked_list_1.png" alt="linked_list_1.png" /></p>
+
+<p>4를 나타내는 노드가 9를 나타내는 노드를 가리키고 있다.</p>
+
+<p>그림에서 보이듯이 노드와 노드가 연결되어있다(linked)는 구조이므로 링크드리스트라고 부른다.</p>
+
+<h2 id="종류">종류</h2>
+
+<p>링크드리스트는 연결이 어떻게 구성하는지에 따라 종류가 나뉜다.</p>
+
+<ul>
+  <li>Singly linked list (단방향 링크드리스트)</li>
+  <li>Doubly linked list (양방향 링크드리스트)</li>
+  <li>Circular linked list (원형 링크드리스트)</li>
+</ul>
+
+<h3 id="singly-linked-list-단방향-링크드리스트"><a href="/algorithm/단방향-링크드리스트">Singly linked list (단방향 링크드리스트)</a></h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span><span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">;</span>
+</code></pre></div></div>
+<p>각 노드가 해당 노드의 다음 노드만 알고 있는 구조다.</p>
+
+<h3 id="doubly-linked-list-양방향-링크드리스트"><a href="/algorithm/양방향-링크드리스트">Doubly linked list (양방향 링크드리스트)</a></h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span><span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span><span class="p">,</span> <span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span> <span class="n">tail</span><span class="p">;</span>
+</code></pre></div></div>
+<p>각 노드가 해당 노드의 이전 노드와 다음 노드를 알고 있는 구조다.</p>
+
+<h3 id="circular-linked-list-원형-링크드리스트">Circular linked list (원형 링크드리스트)</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span> <span class="nf">one</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Node</span> <span class="nf">two</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Node</span> <span class="nf">three</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">one</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">two</span><span class="p">;</span>
+<span class="n">two</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">three</span><span class="p">;</span>
+<span class="n">three</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">one</span><span class="p">;</span>
+</code></pre></div></div>
+<p>링크드리스트의 끝부분이 시작부분과 연결되어있는 구조다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 비트연산자
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%EB%8B%A8%EB%B0%A9%ED%96%A5-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        단방향 링크드리스트
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

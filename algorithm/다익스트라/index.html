@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>다익스트라</title>
+    <meta name="description" content="다익스트라">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  다익스트라">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/default_background.png)"
+    class="entry-feature-image u-photo"
+    alt="다익스트라">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">다익스트라
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-03-22 14:55:25
+              
+              
+
+<span class="read-time">6 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="다익스트라">다익스트라</h1>
+
+<p>한 정점을 기준으로 모든 정점에 대한 최소 비용을 구하는 알고리즘이다.</p>
+
+<p>특정 정점에서 다른 정점으로 향할 때 걸리는 비용을 최소로 할 때 유용하다.</p>
+
+<p>매 탐색마다 최소 비용을 찾아 움직이는 탐욕알고리즘이다.</p>
+
+<p><span class="red">단, 비용이 음수인 간선이 있다면 이 알고리즘은 사용할 수 없다</span>.</p>
+
+<p>최소 비용을 갱신할 때 최소힙에서 제일 비용이 적은 정점을 꺼내 확인하기 때문에 비용이 음수인 간선이 있다면 제대로된 결과를 얻을 수 없다.</p>
+
+<h2 id="시간복잡도">시간복잡도</h2>
+
+<p>정점의 개수 = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span>, 간선의 개수 = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span></p>
+
+<p>각 정점이 정확히 한 번씩 방문되고, 그에 따라 간선도 한 번씩 검사되므로,<br />
+모든 간선을 탐색하는 데에 걸리는 시간 = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(E)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></p>
+
+<p>최악의 경우 간선을 검사할 때마다 값이 갱신되어 최소힙에 삽입하게 된다.<br />
+이 때 걸리는 시간은 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mo>×</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(E \times logE)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></p>
+
+<p>그러므로 시간복잡도는 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo><mo>+</mo><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>E</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(E) + O(ElogE) = O(ElogE)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">El</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">El</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></p>
+
+<p>대부분의 경우 그래프의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">V^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>가 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>보다 작으므로 (완전그래프가 아니라는 말),<br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(ElogE)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">El</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span>를 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(ElogV)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">El</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>로 나타낼 수 있다.</p>
+
+<h1 id="원리">원리</h1>
+
+<h3 id="전처리">전처리</h3>
+
+<ul>
+  <li>시작 정점에서 도착 정점까지 향할 때 최소 비용을 담는 배열을 만든다. <br />
+배열의 원소들은 무한으로 초기화한다. <br />
+시작 정점의 값은 0으로 한다.</li>
+  <li>정점과, 그 정점으로 향할 때 드는 비용을 담는 최소힙을 만든다. <br />
+시작 정점과 비용 0을 최소힙에 추가한다.</li>
+</ul>
+
+<ol>
+  <li>최소힙에서 가장 비용이 적은 정점을 꺼내온다.</li>
+  <li>그 정점을 시작으로 하는 모든 간선에 대해 <span class="orange">그 정점까지의 비용과 간선의 비용을 더한 값이 도착 정점까지의 비용보다 작다면</span> 도착 정점까지 향할 때 드는 비용을 갱신한다.</li>
+  <li>만약 도착 정점의 비용을 갱신했다면 도착 정점을 최소힙에 추가한다.</li>
+</ol>
+
+<h1 id="설명">설명</h1>
+
+<p>먼저 아래와 같은 그래프를 예시로 삼고, 최소 비용을 담는 배열을 만든다.</p>
+
+<p>최소 비용은 전부 무한으로 초기화한 후 시작 정점인 1번만 0으로 만든다.</p>
+
+<p>최소힙에 &lt;1번, 0&gt;을 넣어 초기화한다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_1.png" alt="dijkstra_1.png" /></p>
+
+<p>먼저 최소힙에서 정점과 비용을 꺼내온다. 초기화할 때 넣었던 &lt;1번, 0&gt;이 나온다.</p>
+
+<p>1번 정점에 연결된 다른 간선들에 대해서, <strong><span class="orange">1번 정점의 비용 + 간선의 비용</span>이 <span class="orange">도착 정점의 비용보다 작다면</span></strong>,<br />
+최소 비용 배열의 값을 갱신하고 &lt;도착 정점, 도착 정점의 갱신된 비용&gt;을 힙에 추가한다.</p>
+
+<p>따라서 아래 사진처럼 변해있다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_2.png" alt="dijkstra_2.png" /></p>
+
+<p>최소힙에서 비용이 제일 적은 정점을 꺼내온다. 2번 정점이 비용 2로 제일 적기 때문에 2번에 연결된 다른 간선들을 탐색하게 된다.</p>
+
+<p>3번 정점밖에 연결되어 있지 않은데, <strong><span class="orange">2번 정점의 비용 + 간선의 비용</span>이 3번 정점의 비용보다 크기 때문에</strong>,<br />
+1번 정점에서 3번 정점까지 가는데에 드는 <strong>최소 비용을 갱신하지 않는다</strong>.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_3.png" alt="dijkstra_3.png" /></p>
+
+<p>그림에서 보이듯이 1-&gt;2-&gt;3으로 갈 때 드는 비용보다 1-&gt;3으로 갈 때 드는 비용이 더 적다.</p>
+
+<p>그 다음에 최소힙에서 뽑힌 원소는 3번 정점이다. 3번 정점에 연결된 간선들에 대해 탐색한다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_4.png" alt="dijkstra_4.png" /></p>
+
+<p><strong>3번 정점까지 가는 비용인 3과 각 간선의 비용을 더한 값이 기존에 배열에 들어있던 무한값보다 작기 때문에</strong> 값이 갱신된다.</p>
+
+<p>값을 갱신했다면 최소힙에 넣는다. 간선을 모두 순회했다면 최소힙에 의해 제일 비용이 작은 &lt;6번, 5&gt; 원소가 가장 앞에 있다. 그렇기 때문에 6번 정점을 먼저 탐색하게 된다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_5.png" alt="dijkstra_5.png" /></p>
+
+<p>6번 정점을 탐색하게 되면 5번 정점으로 가는 간선도 탐색하게 되는데, 6번 정점까지 가는 비용인 5와 간선의 비용 3을 더했지만 5번 정점까지 갈 때 드는 비용인 7보다 크다. 따라서 갱신되지 않는다.</p>
+
+<p>7번 정점으로 가는 간선도 있으므로 7번 정점까지 갈 때 드는 비용인 INF가 5+4=9, 9로 바뀌게 된다. 그리고 최소힙에 추가한다.</p>
+
+<p>이 상황에서 비용이 제일 작은 정점은 5번이므로 5번 정점을 탐색한다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_6.png" alt="dijkstra_6.png" /></p>
+
+<p>4번 정점으로 가는 간선을 탐색하게 되면 기존에 11만큼의 비용을 갖고 있었지만 <span class="orange">5번 정점으로 갈 때 드는 비용인 7과 간선의 비용 3을 더하면 10이 되므로 비용이 갱신된다</span>.</p>
+
+<p>이렇게 모든 정점에 대해 최소힙이 빌 때까지 작업을 반복하면 아래처럼 결과가 나온다.</p>
+
+<p><img src="/assets/images/algorithm/dijkstra_7.png" alt="dijkstra_7.png" /></p>
+
+<p>이 결과는 1번 정점에서 출발할 때 다른 정점까지의 최소 비용을 의미한다.</p>
+
+<h1 id="구현">구현</h1>
+
+<p>최소힙은 직접 구현하지 않고 STL을 사용했다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">int</span> <span class="n">INT</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">PII</span> <span class="o">=</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// &lt;정점, 비용&gt;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span>
+    <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> 
+    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> 
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span> <span class="n">graph</span><span class="p">[]){</span>  <span class="c1">// 방향성을 가진 그래프, graph[start] = &lt;end, dist&gt;</span>
+
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span> <span class="c1">// 최소 비용 배열을 무한대로 초기화</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span> <span class="n">heap</span><span class="p">;</span> <span class="c1">// &lt;도착 정점, 비용&gt;</span>
+
+    <span class="n">dist</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">heap</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="kt">int</span> <span class="n">currentNode</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">currentDist</span> <span class="o">=</span> <span class="o">-</span><span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+        <span class="c1">// 음수로 하는 이유는 priority_queue가 </span>
+        <span class="c1">// 기본적으로 최대힙을 쓰기 때문이다.</span>
+        <span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">graph</span><span class="p">[</span><span class="n">currentNode</span><span class="p">].</span><span class="n">start</span><span class="p">();</span> 
+            <span class="n">iter</span> <span class="o">!=</span> <span class="n">graph</span><span class="p">[</span><span class="n">currentNode</span><span class="p">].</span><span class="n">end</span><span class="p">();</span>
+            <span class="n">iter</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">endNode</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">endNodeDist</span> <span class="o">=</span> <span class="n">currentDist</span> <span class="o">+</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">endNodeDist</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">endNode</span><span class="p">]){</span>
+                <span class="c1">// 현재 정점의 최소 비용 + 간선의 비용이</span>
+                <span class="c1">// 도착 정점의 최소 비용보다 작다면,</span>
+                <span class="c1">// 도착 정점의 값을 갱신한다.</span>
+                <span class="c1">// 그리고 도착 정점을 최소힙에 추가한다.</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">endNode</span><span class="p">]</span> <span class="o">=</span> <span class="n">endNodeDist</span><span class="p">;</span>
+                <span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">endNode</span><span class="p">,</span> <span class="n">endNodeDist</span><span class="p">});</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// start로부터 그래프 내 각 정점까지 이동할 때 드는 최소 비용</span>
+    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="정리">정리</h1>
+
+<p>특정 지점에서 다른 지점까지 이동할 때 어떤 간선을 골라 최소 경로로 이동해야하는지 알아야 한다면 다익스트라가 알맞다.</p>
+
+<p>만약 비용이 음수인 간선이 있다면 어쩔 수 없이 플로이드-워셜 알고리즘을 써야한다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EC%B5%9C%EC%86%8C-%EC%8B%A0%EC%9E%A5-%ED%8A%B8%EB%A6%AC(%ED%81%AC%EB%A3%A8%EC%8A%A4%EC%B9%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 최소 신장 트리(크루스칼 알고리즘)
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/unity/Input-Manager/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        Input Manager
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

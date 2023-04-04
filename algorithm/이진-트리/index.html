@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>이진 트리</title>
+    <meta name="description" content="코드는 제 마음대로 작성했기 때문에 보편적인 방법이 아닐 수 있습니다.">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  이진-트리">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/algorithm/tree_1.png)"
+    class="entry-feature-image u-photo"
+    alt="이진 트리">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">이진 트리
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-02-27 16:34:30
+              
+              
+
+<span class="read-time">6 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <gray>코드는 제 마음대로 작성했기 때문에 보편적인 방법이 아닐 수 있습니다.</gray>
+
+<hr />
+
+<h1 id="개념">개념</h1>
+
+<p>이진 트리란 일반적으로 자식 노드를 최대 2개까지 갖는 자료구조다.</p>
+
+<p>자식 노드가 최대 2개니까 탐색하기 매우 쉽다.</p>
+
+<h2 id="완전-이진-트리">완전 이진 트리</h2>
+
+<p>완전 이진 트리란 <strong>마지막 레벨을 제외하고 모든 레벨이 완전히 차있으며</strong> 마지막 레벨에서도 <strong>노드들이 왼쪽으로 모여있는 형태</strong>를 말한다.</p>
+
+<p><img src="/assets/images/algorithm/tree_3.png" alt="tree_3.png" /></p>
+
+<p>마지막 레벨인 2레벨을 보면 왼쪽으로 모든 노드들이 몰려있다. 이런 트리를 완전 이진 트리라고 한다.</p>
+
+<p><img src="/assets/images/algorithm/tree_4.png" alt="tree_4.png" /></p>
+
+<p>반면 이 트리는 마지막 레벨에서 모든 노드들이 왼쪽에 몰려있지 않으므로 완전 이진 트리가 아니다.</p>
+
+<p><img src="/assets/images/algorithm/tree_5.png" alt="tree_5.png" /></p>
+
+<p>이 트리는 마지막 레벨에서 모든 노드가 왼쪽에 있지만, 마지막 레벨을 제외한 0 ~ 2레벨에 모든 노드가 꽉 차있지 않으므로 완전 이진 트리가 아니다.</p>
+
+<h2 id="이진-탐색-트리">이진 탐색 트리</h2>
+
+<p>이진 탐색 트리란 이진 트리를 기반으로 하며, 값의 중복을 허용하지 않고 <strong><green>왼쪽 서브트리는 자신보다 작은 값, 오른쪽 서브 트리는 자신보다 큰 값</green></strong>을 담는 자료구조다.</p>
+
+<h1 id="구현-이진-탐색-트리">구현 (이진 탐색 트리)</h1>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span><span class="p">{</span>
+  <span class="n">Node</span><span class="o">*</span> <span class="n">left</span><span class="p">,</span> <span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="삽입">삽입</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">){</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">45</span><span class="p">);</span>
+</code></pre></div></div>
+<p>위 코드를 실행하면 재귀적으로 삽입과정이 반복된다. 결과적으로 아래 그림처럼 삽입된다.</p>
+
+<p><img src="/assets/images/algorithm/tree_6.png" alt="tree_6.png" /></p>
+
+<p>재귀적으로 탐색을 진행할 때 자식 노드가 비어있을 경우 그 자리에 새로운 노드를 삽입한다.</p>
+
+<p>삽입을 마친 후에 자기 자신을 반환하므로 부모 노드는 삽입이 끝난 서브트리를 반환받게 된다.</p>
+
+<h2 id="삭제">삭제</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span> <span class="c1">// 찾는 값이 트리에 없음.</span>
+    <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">){</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">value</span><span class="p">){</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span> <span class="c1">// node-&gt;value == value</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="n">rightSubTree</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+      <span class="k">delete</span> <span class="n">node</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">rightSubTree</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="n">leftSubTree</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+      <span class="k">delete</span> <span class="n">node</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">leftSubTree</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 노드에게 왼쪽 서브트리와 오른쪽 서브트리가 모두 있는 경우</span>
+    <span class="c1">// 오른쪽 서브트리에서 제일 작은 값을 가진 노드를 찾아 현재 노드로 교체한다.</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">minNode</span> <span class="o">=</span> <span class="n">findMinNode</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">minNode</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">minNode</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Node</span><span class="o">*</span> <span class="n">findMinNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">){</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>삭제의 경우 조금 독특하다. 이진 탐색 트리의 규칙에 따라 노드의 값이 찾는 값보다 작은 경우 왼쪽 서브트리를 탐색하고 반대의 경우 오른쪽 서브트리를 탐색한다.</p>
+
+<p>만약 둘 다 아닌 경우 찾는 값이 현재 노드임을 의미한다. 그렇지 않은 경우는 노드가 <code class="language-plaintext highlighter-rouge">nullptr</code>인 경우인데, 이럴 땐 그냥 <code class="language-plaintext highlighter-rouge">nullptr</code>을 반환한다.</p>
+
+<p>삭제하려는 값을 찾은 경우 곧바로 삭제할 수 없다. 삭제하려는 노드가 서브트리를 갖고 있는 경우가 있기 때문이다.</p>
+
+<p><img src="/assets/images/algorithm/tree_7.png" alt="tree_7.png" /></p>
+
+<p>세 가지 경우로 나뉘는데, 먼저 왼쪽 서브트리만 갖고 있는 경우다.</p>
+
+<p>이 경우는 현재 노드를 삭제하고 왼쪽 서브트리를 현재 노드의 자리로 이동시킨다.</p>
+
+<p>오른쪽 서브트리만 갖고 있는 경우도 마찬가지이다.</p>
+
+<p><img src="/assets/images/algorithm/tree_8.png" alt="tree_8.png" /></p>
+
+<p>하지만 왼쪽과 오른쪽 서브트리를 모두 갖고 있을 때에는 조금 복잡한데, 어느 한 쪽을 현재 노드의 자리로 이동시킬 수 없기 때문이다.</p>
+
+<p>이진 탐색 트리의 규칙을 지키기 위해 왼쪽 서브트리의 루트 노드의 값보다 크고, 오른쪽 서브트리의 루트 노드의 값보다 작은 값을 선택해야한다.</p>
+
+<p>이 코드에서는 오른쪽 서브트리에서 제일 작은 값을 찾기위해 왼쪽 노드를 계속 탐색했다.</p>
+
+<p>제일 작은 값을 가진 노드를 찾은 후에 그 노드의 값을 현재 노드의 값에 복사하고, 작은 값을 가진 노드를 삭제했다.</p>
+
+<p><img src="/assets/images/algorithm/tree_9.png" alt="tree_9.png" /></p>
+
+<p>위 그림에서 5를 지운다고 생각할 때 오른쪽 서브트리에서 제일 작은 값을 찾아 교체하면 이진 탐색 트리의 규칙을 만족한다.</p>
+
+<p><img src="/assets/images/algorithm/tree_10.png" alt="tree_10.png" /></p>
+
+<p>반대로 왼쪽 서브트리에서 제일 큰 값을 찾아 현재 노드와 교체해도 성립한다.</p>
+
+<h2 id="탐색">탐색</h2>
+
+<p>이진 트리의 탐색 방법에는 세 가지가 있다.</p>
+
+<ul>
+  <li>전위 탐색</li>
+  <li>중위 탐색</li>
+  <li>후위 탐색</li>
+</ul>
+
+<h3 id="전위-탐색">전위 탐색</h3>
+
+<ol>
+  <li>먼저 현재 노드의 값을 탐색한다.</li>
+  <li>왼쪽 서브트리로 이동한다.</li>
+  <li>만약 왼쪽 서브트리가 없다면 오른쪽 서브트리로 이동한다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Node</span><span class="o">*</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span> <span class="c1">// 탐색</span>
+  <span class="n">preOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+  <span class="n">preOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="중위-탐색">중위 탐색</h3>
+
+<ol>
+  <li>먼저 왼쪽 서브트리로 이동한다.</li>
+  <li>왼쪽 서브트리가 없다면 현재 노드의 값을 탐색한다.</li>
+  <li>오른쪽 서브트리로 이동한다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">inOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span> <span class="c1">// 탐색</span>
+  <span class="n">inOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="후위-탐색">후위 탐색</h3>
+
+<ol>
+  <li>먼저 왼쪽 서브트리로 이동한다.</li>
+  <li>왼쪽 서브트리가 없다면 오른쪽 서브트리로 이동한다.</li>
+  <li>오른쪽 서브트리가 없다면 현재 노드의 값을 탐색한다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">){</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">postOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+  <span class="n">postOrder</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span> <span class="c1">// 탐색</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%ED%8A%B8%EB%A6%AC/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 트리
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%EC%B5%9C%EC%86%8C-%EA%B3%B5%ED%86%B5-%EC%A1%B0%EC%83%81/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        최소 공통 조상
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    <title>최소 공통 조상</title>
+    <meta name="description" content="LCA(최소 공통 조상)">
+    <link rel="canonical" href="https://10cheon00.github.io/algorithm/%EC%B5%9C%EC%86%8C-%EA%B3%B5%ED%86%B5-%EC%A1%B0%EC%83%81/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/dark.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:100,700|Source+Sans+Pro:400,400i,700,700i">
+  <!-- start custom head snippets -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" type="image/png" href="/assets/favicon-512x512.png">
+
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  최소-공통-조상">
+    <div class="header">
+      <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+      
+  <div class="navigation-wrapper">
+    <div class="navigation-bar">
+      <a href="/">
+        <div class="fa fa-home fa-lg"></div>
+      </a>
+      <a href="#menu-toggle" class="menu-toggle">
+        <div class="fa fa-bars fa-lg"></div>
+      </a>
+    </div>
+
+    <aside id="primary-nav" class="toggle-sidebar">
+      <a href="#menu-toggle" class="menu-toggle toggle-sidebar-exit">
+        <div class="fa fa-times"></div>
+      </a>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+    </aside>
+  </div><!-- /.navigation-wrapper -->
+
+
+    </div>
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+<div class="page-image">
+  <div
+    style="background-image: url(/assets/images/algorithm/lca_1.png)"
+    class="entry-feature-image u-photo"
+    alt="최소 공통 조상">
+  </div>
+  
+  <div class="masthead">
+  <div class="site-title animated fadeIn"><a href="/">공부한 것을 정리하자</a></div>
+  <p class="site-description animated fadeIn" itemprop="description"></p>
+</div><!-- /.masthead -->
+
+</div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <!-- empty title for making blank line. -->
+        <h1 class="page-title"></h1>
+      </header>
+
+      <div class="page-sidebar">
+  <div class="page-author h-card p-author"><img src="/assets/favicon-512x512.png" class="author-avatar u-photo" alt="Kim Taekcheon"><div class="author-info"><div class="author-name">
+        <span class="p-name">Kim Taekcheon</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/10cheon00"><i class="fab fa-github fa-lg fa-lg" title=""></i></a>
+          </li></ul></div>
+</div>
+ 
+  
+
+
+  <div class="page-categories-header">
+    
+  </div>
+  <div class="page-categories">
+    
+      
+      <ul>
+        
+          <li>
+            
+            <a href="/categories/algorithm">
+              Algorithm (12)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/maps">
+              Maps (2)
+            </a>
+            
+        
+          <li>
+            
+            <a href="/categories/unity">
+              Unity (1)
+            </a>
+            
+        
+      </ul>
+    
+  </div>
+</div>
+
+
+      <div class="page-content">
+        <header class="page-header">
+          <div class="page-categories">
+            
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy"><a class="p-category" href="/categories/algorithm" title="Pages filed under Algorithm">Algorithm</a></li>
+  </ul>
+
+
+          </div>
+          
+          
+          <h1 id="page-title" class="page-title p-name">최소 공통 조상
+</h1>
+          
+          
+            <div class="page-information">
+              
+                2023-03-01 12:00:07
+              
+              
+
+<span class="read-time">11 min read</span>
+
+            </div>
+          
+        </header>
+
+        <div class="e-content">
+          <h1 id="lca최소-공통-조상">LCA(최소 공통 조상)</h1>
+
+<p>이진 트리에서 두 노드가 가장 처음으로 갖는 공통 조상 노드를 찾는 알고리즘이다.</p>
+
+<p><img src="/assets/images/algorithm/lca_1.png" alt="lca_1.png" /></p>
+
+<p>위 사진에서 화살표로 표시한 노드의 최소 공통 조상은 파란색으로 표시된 노드다.</p>
+
+<h1 id="원리">원리</h1>
+
+<p>간단한 방법은 다음과 같다.</p>
+
+<ol>
+  <li>두 노드의 깊이(depth)를 동일하게 만든다.</li>
+  <li>깊이를 맞춘 두 노드로부터 한 칸 씩 상위로 이동했을 때 두 노드가 같은 노드인지(공통 조상인지) 확인한다.</li>
+</ol>
+
+<p>이렇게 하면 이진 트리의 깊이가 N일 때 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>의 시간복잡도로 최소 공통 조상을 찾아낼 수 있다.</p>
+
+<p>이 방법도 좋지만 한 칸 씩 상위로 이동한다는 점이 좋은 성능을 내지 못한다. (선형탐색)</p>
+
+<p>따라서 상위로 이동하는 방식을 <strong>이진 탐색과 유사하게 만들면</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>의 시간복잡도로 찾아낼 수 있다.</p>
+
+<p>소개할 방법은 업다운 게임을 최소한의 시도로 성공하려할 때 쓸 전략과 매우 유사하다.</p>
+
+<h1 id="최적화">최적화</h1>
+
+<p><img src="/assets/images/algorithm/lca_2.png" alt="lca_2.png" /></p>
+
+<p>위 사진에서 화살표로 표시한 노드의 최소 공통 조상을 찾기 위해 먼저 두 노드의 깊이를 같게 만든다.</p>
+
+<p>오른쪽 노드의 한 칸 상위 노드가 왼쪽 노드와 같은 깊이이므로 한 칸 위 노드를 선택해 진행한다.</p>
+
+<p><img src="/assets/images/algorithm/lca_3.png" alt="lca_3.png" /></p>
+
+<p>업다운 게임을 할 때에는 최소 시도로 답을 알아내기 위해 <strong><span class="green">주어진 범위의 중간값이 답인지 계속 확인한다</span>.</strong></p>
+
+<p>이와 비슷하게 주어진 트리의 깊이보다 작은 2의 배수를 시작으로 범위를 좁혀나가면서 해당 노드가 공통 조상인지 확인한다.</p>
+
+<p>먼저 주어진 트리의 깊이가 7이므로 현재 위치에서 7보다 작은 2의 배수인 4칸만큼 상위로 이동했을 때 공통 조상인지 확인한다.</p>
+
+<p><img src="/assets/images/algorithm/lca_4.png" alt="lca_4.png" /></p>
+
+<p>각 노드에서 4칸 만큼 상위로 이동한 결과는 같은 노드였다. 찾은 노드를 공통 조상으로 갱신한다.</p>
+
+<p>이 노드는 공통 조상이지만 <orange>"최소" 공통조상인지는 모른다</orange>. 그림에서 보이듯이 공통 조상이 더 있기 때문이다.</p>
+
+<p>찾은 노드가 공통 조상이므로 <strong><span class="green">그 노드의 상위 노드들은 모두 공통 조상이다</span></strong>. 그러므로 <strong><span class="orange">하위 노드 중에 공통 조상이 있는지</span></strong> 조사해야한다.</p>
+
+<p>직전에 이동한 값인 4칸을 절반으로 나눠 2칸만큼 현재 노드에서 상위로 이동해본다.</p>
+
+<p><img src="/assets/images/algorithm/lca_5.png" alt="lca_5.png" /></p>
+
+<p>이번엔 두 노드가 다른 노드임이 확인됐다. 서로 다른 노드이므로 이동한 노드를 현재 노드로 갱신한다.</p>
+
+<p><img src="/assets/images/algorithm/lca_6.png" alt="lca_6.png" /></p>
+
+<p>즉 이렇게 해도 공통 조상을 찾는다는 점에서는 전혀 문제될 것이 없다. 새로 선택한 노드가 각각 최초로 선택한 노드의 조상이면서 서로 다른 노드이기 때문이다.</p>
+
+<p>직전에 이동한 값인 2칸을 절반으로 나눠 1칸만큼 현재 노드에서 상위로 이동해본다.</p>
+
+<p><img src="/assets/images/algorithm/lca_7.png" alt="lca_7.png" /></p>
+
+<p>이번엔 공통 조상임이 확인되었다. 앞서 찾았었던 공통 조상은 <span class="orange">이번에 찾은 공통 조상보다 깊이값이 낮기 때문에</span> 이 노드를 새로운 최소 공통 조상으로 갱신한다.</p>
+
+<p>이제 이동한 값을 절반으로 나눴더니 0이 되었으므로 더이상 이동할 수 없다.</p>
+
+<p>더이상 이동할 수 없으므로 <strong>마지막으로 찾았던 노드가 최소 공통 조상이다</strong>.</p>
+
+<h1 id="구현">구현</h1>
+
+<p>이진 탐색으로 빠르게 찾기 위해 각 노드는 자신의 조상 노드의 인덱스를 알고 있어야 한다.</p>
+
+<p>앞서 최적화 과정에서 <span class="green">2의 배수로만 이동한다는 점(값을 절반으로 나눠서 이동한다는 것)</span>을 생각하면 굳이 모든 조상 노드를 알고 있을 필요는 없다.</p>
+
+<p>즉, 현재 노드부터 <strong>1, 2, 4, … n/2, n번째 조상</strong>만 알고 있으면 된다.</p>
+
+<p>왜냐하면, 매 탐색 때마다 공통 조상이 나올 경우 같은 자리에서 계속 탐색을 하려 할 것이기 때문이다.</p>
+
+<p><img src="/assets/images/algorithm/lca_8.png" alt="lca_8.png" /></p>
+
+<p>그림으로 설명하면 이렇다.</p>
+
+<p>초록색 화살표로 표시한 노드는 주황색 화살표로 표시한 조상 노드들의 인덱스만 알고 있으면 된다.</p>
+
+<p>초록색 화살표 바로 왼쪽에 있는 노드의 공통 조상을 확인하려고 할 경우 주황색 화살표로 표시한 노드들을 <strong><span class="red">자리 이동 없이</span></strong> 확인하게 될 것이기 때문이다.</p>
+
+<p><img src="/assets/images/algorithm/lca_8_1.png" alt="lca_8_1.png" /></p>
+
+<p>그렇지만 파란색 화살표로 표시한 노드는 현재 노드가 기억하고 있지 않다.</p>
+
+<p>이 경우 주황색 화살표로 표시한 노드가 기억하고 있기 때문에 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>번째 노드를 확인하면 된다.</p>
+
+<h2 id="조상-노드-인덱스-구하기">조상 노드 인덱스 구하기</h2>
+
+<p>내용이 너무 길어져서 토글 안으로 옮겼습니다.</p>
+
+<details>
+
+<summary>접기/펼치기</summary>
+
+<div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MAX_NODE 100000
+#define MAX_DEPTH 17 // log(100000) = 16.6... -&gt; 17
+</span><span class="c1">// 트리 표현</span>
+<span class="c1">// 1번 노드에 2, 3번 노드가 자식으로 달려있다면,</span>
+<span class="c1">// tree[1] = {2, 3};</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">tree</span><span class="p">[</span><span class="n">MAX_NODE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">// i번째 노드의 조상 인덱스</span>
+<span class="kt">int</span> <span class="n">parents</span><span class="p">[</span><span class="n">MAX_NODE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">MAX_DEPTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span> 
+
+<span class="c1">// i번째 노드의 깊이</span>
+<span class="kt">int</span> <span class="n">depth</span><span class="p">[</span><span class="n">MAX_NODE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</code></pre></div>    </div>
+
+    <p>미리 선언해야할 변수들은 다음과 같다.</p>
+
+    <p>조상 노드를 저장해둘 <code class="language-plaintext highlighter-rouge">parents</code>배열와 각 노드의 깊이를 저장할 <code class="language-plaintext highlighter-rouge">depth</code>배열이 필요하다.</p>
+
+    <p>위 코드에서는 <code class="language-plaintext highlighter-rouge">vector</code>를 활용해서 트리를 저장했는데 그래프 형태로 저장해도 괜찮다.</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// dfs로 parent의 0번째 인덱스와 depth를 전처리함.</span>
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">currentNode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">){</span>
+  <span class="n">depth</span><span class="p">[</span><span class="n">currentNode</span><span class="p">]</span> <span class="o">=</span> <span class="n">level</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 현재 노드의 깊이 저장</span>
+  
+  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">childs</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="n">currentNode</span><span class="p">];</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">childs</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">iter</span> <span class="o">!=</span> <span class="n">childs</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">iter</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">parents</span><span class="p">[</span><span class="o">*</span><span class="n">iter</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">currentNode</span><span class="p">;</span> <span class="c1">// 자식 노드의 2^0번째 조상을 현재 노드로 저장</span>
+    <span class="n">dfs</span><span class="p">(</span><span class="o">*</span><span class="n">iter</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">makeParents</span><span class="p">(){</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">node</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">node</span> <span class="o">&lt;=</span> <span class="n">MAX_NODE</span><span class="p">;</span> <span class="n">node</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">MAX_DEPTH</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+      <span class="n">parents</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">temp</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>dfs를 이용해 <code class="language-plaintext highlighter-rouge">depth</code>와 <code class="language-plaintext highlighter-rouge">parents</code>의 0번째 값을 초기화 한다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">parents</code>의 0번째 값은 <strong><span class="orange">현재 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드를 전처리한다</span></strong>.</p>
+
+    <p>그 후 <code class="language-plaintext highlighter-rouge">makeParent()</code>를 호출해 각 노드에게 조상 노드들을 저장하게 만든다.</p>
+
+    <h3 id="section">예시</h3>
+
+    <p><img src="/assets/images/algorithm/lca_9.png" alt="lca_9.png" /></p>
+
+    <p>예시로 위와 같은 트리를 가져와봤다. <code class="language-plaintext highlighter-rouge">parents</code>배열은 아래와 같이 초기화 되어있다. 비어있는 값은 0을 의미한다.</p>
+
+    <p><img src="/assets/images/algorithm/lca_10.png" alt="lca_10.png" /></p>
+
+    <p>가로축은 현재 노드를 의미하고, 세로축은 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드를 의미한다.</p>
+
+    <p>11번 노드의 조상 노드들을 구한다고 생각해보자. 배열에는 미리 다른 노드들의 조상 노드들을 구했다고 생각하면 이렇게 되어있을 것이다.</p>
+
+    <p><img src="/assets/images/algorithm/lca_11.png" alt="lca_11.png" /></p>
+
+    <p>i가 1일 때, <code class="language-plaintext highlighter-rouge">int temp = parents[node][i-1]</code>를 실행하면 <code class="language-plaintext highlighter-rouge">parents[11][0]</code>이 대입된다. 이 값은 11번 노드의 한 칸 위인 10번 노드다.</p>
+
+    <p>다음 줄에서 이 값이 활용되는데 <code class="language-plaintext highlighter-rouge">parents[node][i] = parents[10][0]</code>인데, 9번 노드를 말한다.</p>
+
+    <p>따라서 11번 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>번째 조상은 9번 노드다.</p>
+
+    <p>i가 2일 때, <code class="language-plaintext highlighter-rouge">int temp = parents[node][i-1]</code>를 실행하면 <code class="language-plaintext highlighter-rouge">parents[11][1]</code>이 대입된다. 이 값은 직전에 구했던 9번 노드다.</p>
+
+    <p>다음 줄에서 <code class="language-plaintext highlighter-rouge">parents[9][1]</code>이 대입되는데 9번 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>번째 조상을 말한다. 이 값은 1이다.</p>
+
+    <p>따라서 11번 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">2^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>번째 조상은 1번 노드다.</p>
+
+    <p>끝까지 모두 구했을 때 배열은 아래 사진처럼 완성된다.</p>
+
+    <p><img src="/assets/images/algorithm/lca_12.png" alt="lca_12.png" /></p>
+
+    <p><br /></p>
+
+    <p>정리해보면, <span class="green"><strong>현재 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드는, 현재 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드가 기억하고 있는 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span>번째 조상 노드다.</strong></span></p>
+
+    <p>dp를 통해 각 노드의 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span>번째 조상을 구했다면 이제 진짜 최소 공통 조상을 찾기만 하면 된다.</p>
+
+  </div>
+
+</details>
+
+<h2 id="lca">LCA</h2>
+
+<p>알고리즘을 다시 정리하자면,</p>
+
+<ol start="0">
+  <li>미리 조상 노드들을 담는 배열과 깊이를 담는 배열을 구한다.</li>
+  <li>두 노드의 깊이를 동일하게 만든다.</li>
+  <li>이진 탐색으로 공통 조상을 구한다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lca</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">){</span>
+  <span class="c1">// 두 노드의 깊이를 동일하게 만든다.</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">depth</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">!=</span> <span class="n">depth</span><span class="p">[</span><span class="n">right</span><span class="p">]){</span>
+    <span class="cm">/*
+    무조건 left가 right보다 깊이가 같거나 높은 상태로 강제한다.
+         *                   *
+        / \                 / \
+    left   *      or    left   right
+            \     
+            right 
+    */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">depth</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">[</span><span class="n">right</span><span class="p">]){</span>
+      <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+      <span class="n">left</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+      <span class="n">right</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">MAX_DEPTH</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">rParent</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">right</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+      <span class="c1">// 상위로 이동한 right의 depth가 left와 같거나 큰 상태에서만 위치를 갱신한다.</span>
+      <span class="c1">// parents배열을 이용해서 이동하기 때문에 log(N)만에 끝남.</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">depth</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">depth</span><span class="p">[</span><span class="n">rParent</span><span class="p">]){</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">rParent</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 깊이를 맞춘 두 노드가 같은 노드면 아래 과정을 거치지 않고 그대로 반환한다.</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">left</span> <span class="o">==</span> <span class="n">right</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">left</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 이진 탐색으로 최소 공통 조상을 구한다.</span>
+  <span class="kt">int</span> <span class="n">lowestCommonAncestor</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">MAX_DEPTH</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">lParent</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">left</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">rParent</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">right</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">lParent</span> <span class="o">==</span> <span class="n">rParent</span><span class="p">){</span>
+      <span class="c1">// 조상 노드가 같은 노드라면 최소 공통 조상을 갱신한다.</span>
+      <span class="n">lowestCommonAncestor</span> <span class="o">=</span> <span class="n">lParent</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+      <span class="c1">// 그렇지 않으면 left와 right을 조상 노드로 변경한다.</span>
+      <span class="n">left</span> <span class="o">=</span> <span class="n">lParent</span><span class="p">;</span>
+      <span class="n">right</span> <span class="o">=</span> <span class="n">rParent</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">lowestCommonAncestor</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>먼저 두 노드의 깊이를 동일하게 만들어야 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">parents</code>배열을 이용해 깊이가 낮은 노드를 이동시키기 때문에 이진 탐색을 이용하고 있다.</p>
+
+<p>두 노드의 깊이를 동일하게 맞췄을 때 만약 두 노드가 같은 노드라면 공통 조상을 찾을 필요가 없다. 따라서 그대로 반환한다.</p>
+
+<p>그렇지 않은 경우 공통 조상을 찾아야 한다.</p>
+
+<p>i를 <code class="language-plaintext highlighter-rouge">MAX_DEPTH</code>부터 0까지 감소하면서 확인한다.</p>
+
+<p>만약 같은 조상임이 확인되면 그 노드를 최소 공통 조상으로 갱신하고 계속 같은 자리에서 탐색을 한다.</p>
+
+<p>그렇지 않다면 현재 노드를 각각 조상 노드로 이동시켜 계속 탐색한다.</p>
+
+<h1 id="결론">결론</h1>
+
+<p>전처리하는 과정엔 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo>×</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N \times Depth)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal">pt</span><span class="mord mathnormal">h</span><span class="mclose">)</span></span></span></span>의 시간이 걸렸지만 최소 공통 조상을 찾는 함수는 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>의 시간만 걸렸다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">parents</code>를 구하는 과정이 많이 복잡했지만 알고리즘 자체는 직관적인 편이다.</p>
+
+        </div>
+
+        
+        
+          <!-- Giscus -->
+<div class="giscus">
+  <script src="https://giscus.app/client.js"
+    data-repo="10cheon00/10cheon00.github.io"
+    data-repo-id="R_kgDOI3IXyw"
+    data-category="General"
+    data-category-id="DIC_kwDOI3IXy84CVE30"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+        
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/algorithm/%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> 이진 트리
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/algorithm/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        우선순위 큐
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2023 공부한 것을 정리하자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>
