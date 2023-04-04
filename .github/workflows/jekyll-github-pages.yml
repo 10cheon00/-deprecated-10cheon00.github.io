@@ -1,9 +1,5 @@
 name: Publish example site
 
-permissions:
-  contents: read
-  pages: write
-
 on:
   push:
       branches:
