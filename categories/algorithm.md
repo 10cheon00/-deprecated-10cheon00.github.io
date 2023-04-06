@@ -1,8 +1,5 @@
 ---
-layout: post
+layout: category
 permalink: /categories/algorithm/
 title: Algorithm
-hide_information: true
 ---
-
-{% include category_posts.html category='Algorithm' %}
