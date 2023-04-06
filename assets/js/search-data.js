@@ -10,7 +10,7 @@ var store = [{
         "url": "https://10cheon00.github.io/maps/Rudeltaktik/"
       },{
         "title": "비트연산자",
-        "excerpt":"C++ built-in operators, precedence, and associativity 알고리즘을 공부하면서 알게된 내용을 적어보았다. 알아두면 좋았을 것들 &gt;&gt;= 오른쪽으로 시프트 후 대입 &lt;&lt;= 오른쪽으로 시프트 후 대입 비트연산자는 변수에 바로 영향을 주는게 아닌 연산만 한다. 대입연산을 활용하면 i = i &gt;&gt; 2를 i &gt;&gt;= 2로 만들 수 있다. for문에서 감산부에 비트연산자를 쓸 때...","categories": ["Algorithm"],
+        "excerpt":"C++ built-in operators, precedence, and associativity Learn more about: C++ built-in operators, precedence, and associativity https://learn.microsoft.com/en-us/cpp/cpp/cpp-built-in-operators-precedence-and-associativity?view=msvc-170 알고리즘을 공부하면서 알게된 내용을 적어보았다. 알아두면 좋았을 것들 &gt;&gt;= 오른쪽으로 시프트 후 대입 &lt;&lt;= 오른쪽으로 시프트 후 대입 비트연산자는 변수에 바로 영향을 주는게 아닌 연산만 한다. 대입연산을 활용하면 i = i &gt;&gt; 2를 i...","categories": ["Algorithm"],
         "tags": [],
         "url": "https://10cheon00.github.io/algorithm/%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/"
       },{
