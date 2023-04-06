@@ -3,7 +3,7 @@ name: Publish example site
 on:
   push:
       branches:
-        [upgrade-jekyll-4, master]
+        [master]
 
 jobs:
   publish:
