@@ -842,7 +842,7 @@ figure.align-center figcaption { text-align: center; }
 /* Custom Components */
 .page-taxonomies-title { display: inline-block; font-size: 0.75rem; font-weight: normal; margin: 0; text-transform: lowercase; }
 
-.page-header { display: block; margin: 0 0 0.5rem; padding: 0; color: #a0a0a0; }
+.page-header { display: block; margin: 0.5em 0 1em 0; padding: 0; color: #a0a0a0; }
 
 .page-header .page-categories * { display: inline-block; padding: 0; margin: 0; }
 
