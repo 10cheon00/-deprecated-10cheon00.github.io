@@ -1,0 +1,45 @@
+.embed-bookmark {
+  border-radius: 3px;
+  border: 1px solid #505050;
+  margin-bottom: 16px;
+  display: flex;
+  
+  .bookmark-preview {
+    display: inline-block;
+    flex-grow: 1;
+    padding: 0.75em;
+    background-color: #262626;
+    
+    * {
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bookmark-content {
+      height: 1.75rem;
+      font-size: 0.5em;
+      color: #505050;
+      margin-bottom: 0.5em;
+    }
+
+    .bookmark-url {
+      font-size: 0.5em;
+    }
+  }
+  
+  .bookmark-image {
+    display: none;
+  }
+  
+  @include breakpoint($medium){
+    .bookmark-image {
+      display: inline-block;
+      min-width: 13em;
+      // background-image: url("https://unity3d.com/files/images/ogimg.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
