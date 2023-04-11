@@ -1,8 +1,9 @@
-{% assign meta = include.url | metadata %}
+{% assign url = include.url %}
+{% assign meta = url | metadata %}
 <div class="embed-bookmark" id="embed-bookmark--{{ include.bookmark_id }}">
   <div class="bookmark-preview">
     <div class="bookmark-header">
-      <a href="{{ include.url }}" target="_blank">
+      <a href="{{ url }}" target="_blank">
         {{ meta["og:title"] | default: meta.title }}
       </a>
     </div>
@@ -11,13 +12,9 @@
     </div>
     <div class="bookmark-url">
       {% assign icon_url = meta.icon %}
-      {{ include.url }}
+      {{ url }}
     </div>
   </div>
-  <!--
-    const url = new URL(url)
-    const icon_url = url.origin + meta.icon;
-   -->
   <div 
   class="bookmark-image"
   style="background-image:url({{ meta['og:image'] }})"
